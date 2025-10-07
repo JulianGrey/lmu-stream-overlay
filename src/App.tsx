@@ -27,8 +27,16 @@ function App() {
         <ul>
           {
             raceData && raceData.map((driver, index) => (
-              <li key={index}>
-                {driver.driverName}
+              <li key={index} className='row'>
+                <div className='position'></div>
+                <div className='car-class'>{driver.carClass}</div>
+                <div className='driver-name'>{driver.driverName}</div>
+                {(driver.lapsBehindLeader < 1) && (
+                  <div className='time-behind-leader'>-{driver.timeBehindLeader} laps</div>
+                )}
+                {(driver.lapsBehindLeader > 0) && (
+                  <div className='time-behind-leader'>-{driver.lapsBehindLeader}</div>
+                )}
               </li>
             ))
           }
