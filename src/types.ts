@@ -5,7 +5,9 @@ export interface SessionStatus {
   lapsBehindLeader: number;
   lapsBehindNext: number;
   lapsCompleted: number;
+  lastLapTime: number;
   pitting: boolean;
+  position: number;
   timeBehindLeader: number;
   timeBehindNext: number;
 }

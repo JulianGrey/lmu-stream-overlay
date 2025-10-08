@@ -8,7 +8,7 @@ export default function Standings({raceData, updateData}: StandingsProps) {
         {
           raceData && raceData.map((driver, index) => (
             <li key={(index + 1)} className={styles.row}>
-              <div className={styles.position}>{(index + 1)}</div>
+              <div className={styles.position}>{driver.position}</div>
               <div className={styles['car-class']}>{driver.carClass}</div>
               <div className={styles['driver-name']}>{driver.driverName}</div>
               {(driver.lapsBehindLeader < 1) && (
