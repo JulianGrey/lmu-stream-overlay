@@ -1,7 +1,8 @@
-export interface SessionStatus {
+export interface StandingsStatus {
   bestLapTime: number;
   carClass: string;
   driverName: string;
+  fuelFraction: number;
   lapsBehindLeader: number;
   lapsBehindNext: number;
   lapsCompleted: number;
@@ -13,6 +14,5 @@ export interface SessionStatus {
 }
 
 export interface StandingsProps {
-  raceData?: SessionStatus[];
-  updateData: () => void;
+  standingsData?: StandingsStatus[];
 }

@@ -1,22 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.scss';
-import type { SessionStatus } from './types';
+import type { StandingsStatus } from './types';
 import Standings from './components/Standings/Standings';
 import sessionStatus from './assets/session-status.json';
 
 function App() {
-  const [raceData, setRaceData] = useState<SessionStatus[]>();
+  const [standingsData, setStandingsData] = useState<StandingsStatus[]>();
+
+  useEffect(() => {
+    updateData();
+  });
 
   function updateData() {
-    setRaceData(sessionStatus as SessionStatus[]);
+    setStandingsData(sessionStatus as StandingsStatus[]);
   }
 
   return (
     <div className='lmu-overlay'>
-      <Standings
-        raceData={raceData}
-        updateData={updateData}
-      />
+      <Standings standingsData={standingsData} />
     </div>
   );
 }
