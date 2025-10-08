@@ -1,18 +1,24 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
 import type { StandingsStatus } from './types';
+import { getStandings } from './services/api';
 import Standings from './components/Standings/Standings';
-import sessionStatus from './assets/session-status.json';
 
 function App() {
   const [standingsData, setStandingsData] = useState<StandingsStatus[]>();
 
   useEffect(() => {
     updateData();
-  });
+  }, []);
 
-  function updateData() {
-    setStandingsData(sessionStatus as StandingsStatus[]);
+  async function updateData() {
+    try {
+      const data = await getStandings();
+
+      setStandingsData(data as StandingsStatus[]);
+    } catch (error) {
+      console.error('Failed to fetch data:', error);
+    }
   }
 
   return (

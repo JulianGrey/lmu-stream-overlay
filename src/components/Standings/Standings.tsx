@@ -16,7 +16,7 @@ export default function Standings({standingsData}: StandingsProps) {
               <div className={styles['time-behind-leader']}>-{driver.lapsBehindLeader.toFixed(0)} laps</div>
             }
             {
-              driver.fuelFraction &&
+              driver.fuelFraction >= 0 &&
               <div className={styles['fuel-fraction']}>{(driver.fuelFraction * 100).toFixed(0)}%</div>
             }
           </li>
